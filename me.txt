@@ -2,4 +2,15 @@ shi shen me rang ni liu lei ;
 shi bu hsi yin wei wo de bu dui ;
 zuo tian de fnag zong ;
 jin tian de hou hui.
-ahghkjgh;rwhwjh'rwjkh'w
+
+$ git config --global user.name "tmz" // 你的名字;
+$ git config --global user.email git@tmz.com;//Email地址
+mkdir learngit;// 创建一个版本库（被git管理的文件容器）
+cd learngit;//转到创建的目录
+pwd;// 显示当前的目录
+git init;// 把这个目录变成Git可以管理的仓库
+git add readme.txt;//  把文本文件添加到仓库
+git commit -m "add my txt first time";// 提交给Git,附上本次提交的说明供人查看
+git status;// 查看仓库当前的状态
+git diff me.txt;// 查看修改了什么
+git add me.txt;git commit -m "change and add once";// 提交和添加是同样的两步，不过两步中间可以使用git status 查看仓库的状态
