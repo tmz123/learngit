@@ -14,3 +14,13 @@ git commit -m "add my txt first time";// 提交给Git,附上本次提交的说�
 git status;// 查看仓库当前的状态
 git diff me.txt;// 查看修改了什么
 git add me.txt;git commit -m "change and add once";// 提交和添加是同样的两步，不过两步中间可以使用git status 查看仓库的状态
+cat me.txt  ;// 查看文本内容
+git log   ;//显示从最近到最远的提交日志（git log --pretty=oneline）
+git reset --hard HEAD^/HEAD^10 ;//将版本回退到指定的版本
+git reset --hard commit_Id  ;// 回到未来的版本
+git reflog   ;l// 查看命令历史，以便确定要回到未来的哪个版本
+git checkout -- me.txt ;//就是让撤销修改这个文件使他回到最近一次git commit或git add时的状态
+	一种是readme.txt自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；
+  一种是readme.txt已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。
+git reset HEAD me.txt ;// git reset HEAD 命令既可以回退版本，也可以把暂存区的修改回退到工作区。当我们用HEAD时，表示最新的版本。
+-------------------------------------------------------------------
