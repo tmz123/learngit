@@ -1,0 +1,72 @@
+1，APP出现crash的原因：
+	内存管理错误：内存泄漏，引用出错（空指针），内存不足
+	程序逻辑错误：数组越界，堆栈溢出，并发操作，逻辑错误
+	SDK错误：部署版本，编译版本
+	主线程阻塞
+2，让Activity变成一个窗口
+	android:theme="@android:style/Theme.Translucent"
+	android:theme="@android:style/Theme.Dialog"
+3，activity被回收
+     onSaveInstanceState中储存Bundle（系统维护的一个map对象）在onCreate中判空调用
+4，RuntimeException
+	NullPointerException - 空指针引用异常
+	ClassCastException - 类型强制转换异常。
+	IllegalArgumentException - 传递非法参数异常。
+	ArithmeticException - 算术运算异常
+	ArrayStoreException - 向数组中存放与声明类型不兼容对象异常
+	IndexOutOfBoundsException - 下标越界异常
+	NegativeArraySizeException - 创建一个大小为负数的数组错误异常
+	NumberFormatException - 数字格式异常
+	SecurityException - 安全异常
+	UnsupportedOperationException - 不支持的操作异常
+	文件已结束异常：EOFException
+	操作数据库异常：SQLException
+	输入输出异常：IOException
+5，广播的类型
+	普通广播：
+	异步广播
+	有序广播
+6，IPC--Inter-Process Communacation进程间通信
+7，BroatCaseReceiver会在接收到广播之后创建一个接收器对象，执行onReceive()方法。
+	但是这个创建的对象的生命周期只有10秒。所以在onRecive()方法中不能执行超过1秒的操作
+8，线程同步
+	当使用多个线程来访问同一个数据时，非常容易出现线程安全问题(比如多个线程都在操作同一数据导致数据不一致),所以我们用同步机制来解决这些问题。
+		1、同步代码块：
+		synchronized(同一个数据){} 同一个数据：就是N条线程同时访问一个数据。
+		2、同步方法：
+		public synchronized 数据返回类型方法名(){}
+		3、同步锁：
+		    我们可以给共享资源加一把锁，这把锁只有一把钥匙。哪个线程获取了这把钥匙，才有权利访问该共享资源。
+		同步锁不是加在共享资源上，而是加在访问共享资源的代码段上。
+9，activity通信
+	intent，SQLite，SharedPreference，File，ContentProvider，IPC
+10，数据持久化
+	SQLite，SharedPreference，File，ContentProvider
+11，binder
+	activity与系统service肯定不是同一个进程，但是它们之间是怎样实现通信的呢？Binder是android中一种实现进程间通信（IPC）的方式之一。
+	binder属于一个驱动，工作在linux层面，运行在内核态，它的操作完成是基于一段内存
+	binder通信是一种client-server的通信结构
+	本质上可以理解为它实现了Client对Server对象的远程调用。比如，有某个binder对象A位于Server中，该对象提供了一套函数用以实现对服务的请求，而在一个或多个Client中包含对象A的引用，Client通过该引用可以调用远端Server中对象A的接口函数，这种远端调用对Client而言，与调用本地对象并无区别。
+	
+	    1.从表面上来看，是client通过获得一个server的代理接口，对server进行直接调用；
+	    2.实际上，代理接口中定义的方法与server中定义的方法是一一对应的；
+	    3.client调用某个代理接口中的方法时，代理接口的方法会将client传递的参数打包成为Parcel对象；
+	    4.代理接口将该Parcel发送给内核中的binder driver.（Parcel是binder IPC中的最基本的通信单元，它存储C-S间函数调用的参数.但是Parcel只能存储基本的数据类型）
+	    5.server会读取binder driver中的请求数据，如果是发送给自己的，解包Parcel对象，处理并将结果返回；
+	    6.整个的调用过程是一个同步过程，在server处理的时候，client会block住。
+12，Activity的四种启动模式
+	standrd,singleToP,singleTask,singleInstance
+			singleTask模式的Activity不管是位于栈顶还是栈底，
+			再次运行这个Activity时，
+			都会destory掉它上面的Activity来保证整个栈中只有一个自己，切记切记
+13，android框架
+	应用层（电话，电子邮件）、框架层（ActivityManager,NotificationManager,ResourseManager,View,ContentProviders ）
+	C/C++-lib库（surface,标准libC库，Media库，SQLite,webCore核心浏览器引擎）
+	android运行时环境（java库）
+	Linux内核
+14，如果多个线程都可以直接修改同一个控件的属性，很容易造成混乱，造成读写不一致
+15，Android在OnCreate中获取控件的宽度和高度
+		利用View类中的getViewTreeObserver方法，可以获取到指定View的观察者，
+		在绘制控件前的一刹那进行回调，这样速度上又不耽误，得到的数据由是准确的。
+16，GCM(Google Cloud Messaging for Android)云推送
+	    
