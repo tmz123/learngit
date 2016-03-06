@@ -1,7 +1,7 @@
-123333333333333333333333333333333
-546666666666666666666666666666666
 7897534354354.341.31.54.614541.4.
-
+gdfklhklghjfklsdfguisgfhdsuighuiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+fdhguidfhiugh
+<<<<<<< HEAD
 2436897
 
 
@@ -13,3 +13,7 @@
 
 苏富博的github帐号：
 
+=======
+24368dkjksdflh ,这次我在master更改tang.txt
+ i love you really!
+>>>>>>> master
