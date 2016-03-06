@@ -1,0 +1,79 @@
+﻿shi shen me rang ni liu lei ;
+shi bu hsi yin wei wo de bu dui ;
+zuo tian de fnag zong ;
+jin tian de hou hui.
+
+$ git config --global user.name "tmz" // 你的名字;
+$ git config --global user.email git@tmz.com;//Email地址
+mkdir learngit;// 创建一个版本库（被git管理的文件容器）
+cd learngit;//转到创建的目录
+pwd;// 显示当前的目录
+git init;// 把这个目录变成Git可以管理的仓库
+git add readme.txt;//  把文本文件添加到仓库
+git commit -m "add my txt first time";// 提交给Git,附上本次提交的说明供人查看
+git status;// 查看仓库当前的状态
+git diff me.txt;// 查看修改了什么
+git add me.txt;git commit -m "change and add once";// 提交和添加是同样的两步，不过两步中间可以使用git status 查看仓库的状态
+cat me.txt  ;// 查看文本内容
+git log   ;//显示从最近到最远的提交日志（git log --pretty=oneline）
+git reset --hard HEAD^/HEAD^10 ;//将版本回退到指定的版本
+git reset --hard commit_Id  ;// 回到未来的版本
+git reflog   ;l// 查看命令历史，以便确定要回到未来的哪个版本
+git checkout -- me.txt ;//就是让撤销修改这个文件使他回到最近一次git commit或git add时的状态
+	一种是readme.txt自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；
+  一种是readme.txt已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。
+git reset HEAD me.txt ;// git reset HEAD 命令既可以回退版本，也可以把暂存区的修改回退到工作区。当我们用HEAD时，表示最新的版本。
+-------------------------------------------------------------------
+git rm test.txt // 删除文件
+git checkout -- test.txt // 用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”。
+git remote add origin git@github.com:tmz123/learngit.git
+在GitHub上的这个learngit仓库还是空的，GitHub告诉我们，
+可以从这个仓库克隆出新的仓库，
+也可以把一个已有的本地仓库与之关联，然后，把本地仓库的内容推送到GitHub仓库。
+远程库的名字就是origin
+git push -u origin master // 把本地库的内容推送到远程，用git push命令，实际上是把当前分支master推送到远程
+git push origin master // 
+只要本地作了提交，就可以通过命令
+把本地master分支的最新修改推送至GitHub，现在，你就拥有了真正的分布式版本库！
+ git clone git@github.com:tmz123/gitskills.git // 从远程库克隆到本地库
+git config --global user.name  tmz
+git config --global user.email   git@tmz.com
+
+
+2016.03.06 23:34
+
+1,Git支持多种协议，包括https，但通过ssh支持的原生git协议速度最快。
+2,查看分支：git branch
+
+创建分支：git branch <name>
+
+切换分支：git checkout <name>
+
+创建+切换分支：git checkout -b <name>
+
+合并某分支到当前分支：git merge <name>
+
+删除分支：git branch -d <name>
+
+查看分支：git branch
+
+查看文件内容： cat tang.txt
+
+编辑文件内容：vi tang.txt
+
+存储当前的工作现场：git stash
+
+恢复上次编辑的工作现场，但stash内容并不删除（回到上次工作的分支先）：git stash apply
+
+删除stash内容：git stash drop
+
+恢复并删除：git stash pop 
+
+查看远程库的信息：git remote
+
+查看远程库的详细信息：git remote -v
+
+推送本地分支到远程库：git push origin master
+
+
+
